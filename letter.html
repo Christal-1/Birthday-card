@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤍❤MY BOOBOO BEAR🤍❤</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background music -->
+
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        YOUR BROWSER DOES NOT SUPPORT AUDIO TAG.
+
+    </audio>
+
+    <!-- Music Control Buttons -->
+
+    <div class="music-controls">
+        <button onclick="playMusic()">▶ Play</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+    </div>
+    
+
+    <!-- love Letter Section -->
+
+    <div class="letter-screen">
+        <button onclick="toggleLetter()"> 📌Read this first📌 </button>
+        <p id="letter-screen" style="display: none;">
+
+
+
+            ❤HAPPY BIRTHDAY, MY LOVE, MY SAFE PLACE, MY FOREVER❤ <br>
+            
+       
+            💕Kamohelo Makhalemele, today i celebrate you, not just for the day <br>
+            you were born, but for every moment you have existed,for every <br>
+            breath you have taken, for every step you have walked in purpose. <br>
+            You are more than just a man.<br>You are light, you are home, you are <br>
+            the very definition of love.💕<br>
+
+       
+            💕Love is not just a word. It is not just something we say or <br>
+            something we feel. Love is everything you are. It is the way you <br>
+            move through this world, <br>the way you breathe life into spaces <br>
+            you enter, the way you make me feel seen, held, understood- <br>
+            without ever having to ask. Love is the warmth of your voice when <br>
+            you say my name, the safety<br> of your embrace, the depth in your <br>
+            eyes when you look at me like i am home.💕<br>
+       
+
+       
+            💕I see the God in you, i see you, i feel you...in the way you love, in the <br>
+            way you lead, in the way you show up time and time again. I have <br>
+            been privy to your rebirth <br>and growth, and i am in awe of the man <br>
+            you are becoming. The lessons you've embraced, the battles you've <br>
+            conquered, the dreams<br> you continue to pursue with relentless <br>
+            passion- all of it makes me so incredibly proud to love you.💕<br>
+       
+
+       
+            💕My heart, my peace, my forever- being with you is the greatest gift <br>
+            life has given me. You<br> fill my cup in ways words can never fully <br>
+            capture. Thank you for your warmth, your strength, your unwavering <br>
+            love. Thank you for choosing me,<br> for staying, for reminding me <br>
+            every single day that i am never alone. Because of you , i have <br>
+            become love too.💕<br>
+       
+
+       
+            💕On this special day, i pray that life grants you everything your heart <br>
+            desires- more joy, more success,<br> more peace and an abundance of <br>
+            love. You are worthy of it all. You are chosen. You are powerful <br>
+            beyond measure.💕<br>
+       
+       
+            💗🥰Ke ho rata ka pelo le moya.<br> A lifetime with you will never be <br>
+            enough, but i promise to cherish every second we are given.💗🥰<br>
+       
+
+       
+            Happy Birthday, my king, My love, My Kamohelo.<br>
+            
+       
+
+        </p>
+        <img src="images/buts.jpg" alt="Gaming Card">
+
+        <button id="next-btn">Next</button>
+        <button id="prev-btn">Prev</button>
+
+
+    </div>
+
+    <script>
+
+        var music = document.getElementById("background-music");
+
+        window.onload = function () {
+            var savedTime = localStorage.getItem("musicTime");
+
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
+            music.play();
+        }
+
+        function playMusic() {
+            music.play();
+        }
+
+        function pauseMusic() {
+            music.pause();
+        }
+
+
+        // Toggle Love Letter
+
+        function toggleLetter() {
+            var letter = document.getElementById("letter-screen");
+            letter.style.display = (letter.style.display === "none") ? "block" : "none";
+        }
+
+        document.getElementById("next-btn").addEventListener("click", function () {
+            localStorage.setItem("musicTime", music.currentTime);
+
+            window.location.href = "song.html";
+        });
+
+        document.getElementById("prev-btn").addEventListener("click", function () {
+            window.location.href = "welcome.html"
+        });
+
+    </script>
+
+</body>
+</html>
+    

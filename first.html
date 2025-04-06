@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤍❤MY BOOBOO BEAR🤍❤</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+
+    <!-- Background music -->
+
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        YOUR BROWSER DOES NOT SUPPORT AUDIO TAG.
+
+    </audio>
+    
+    <!-- Music Control Buttons -->
+
+    <div class="music-controls">
+        <button onclick="playMusic()">▶ Play</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+        <button id="next-btn">Next</button>
+
+    </div>
+
+
+    <!-- first Screen -->
+
+    <div id="first-screen">
+        <h1>💙HAPPY BIRTHDAY MY LOVE💙</h1>
+        <button id="next-btn">Next</button>
+    </div>
+
+
+    <script>
+        var music = document.getElementById("background-music");
+
+        window.onload = function () {
+            var savedTime = localStorage.getItem("musicTime");
+
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
+            music.play();
+        }
+
+        function playMusic() {
+            music.play();
+        }
+
+        function pauseMusic() {
+            music.pause();
+        }
+
+    
+
+        document.getElementById("next-btn").addEventListener("click", function () {
+            localStorage.setItem("musicTime", music.currentTime);
+            window.location.href = "slideshow.html";
+        });
+        
+    </script>
+
+</body>
+</html>
+    

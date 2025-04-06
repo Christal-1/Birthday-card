@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Slideshow</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #slideshow {
+            width: 80%;
+            max-width: 800px;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: opacity 1s ease-in-out;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <!-- Background music -->
+
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        YOUR BROWSER DOES NOT SUPPORT AUDIO TAG.
+
+    </audio>
+    
+    <!-- Music Control Buttons -->
+
+    <div class="music-controls">
+        <button onclick="playMusic()">▶ Play</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+        <button id="prev-btn">Prev</button>
+        <button id="next-btn">Next</button>
+
+    </div>
+
+    <div id="slideshow">
+        <img id="slideshowImage" src="images/pic2.jpg" alt="Slideshow Image">
+    </div>
+
+    <script>
+
+        var music = document.getElementById("background-music");
+
+        window.onload = function () {
+            var savedTime = localStorage.getItem("musicTime");
+
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
+            music.play();
+        }
+
+        function playMusic() {
+            music.play();
+        }
+
+        function pauseMusic() {
+            music.pause();
+        }
+
+
+
+        document.getElementById("next-btn").addEventListener("click", function () {
+            localStorage.setItem("musicTime", music.currentTime);
+            window.location.href = "welcome.html";
+        });
+
+        document.getElementById("prev-btn").addEventListener("click", function () {
+            window.location.href = "first.html"
+        });
+
+        const images = [
+            "images/pic2.jpg",
+            "images/pic3.jpg",
+            "images/pic4.jpg",
+            "images/pic5.jpg",
+            "images/pic6.jpg",
+            "images/pic7.jpg",
+            "images/pic8.jpg",
+            "images/pic9.jpg",
+            "images/pic10.jpg",
+            "images/pic11.jpg",
+            "images/pic12.jpg",
+            "images/pic13.jpg",
+            "images/pic14.jpg",
+            "images/pic15.jpg",
+            "images/pic16.jpg",
+            "images/pic17.jpg",
+            "images/pic18.jpg",
+            "images/pic19.jpg"
+        ];
+
+        function changeImage() {
+            const imgElement = document.getElementById("slideshowImage");
+
+            const randomIndex = Math.floor(Math.random() * images.length);
+            imgElement.style.opacity = "0";
+
+            setTimeout(() => {
+                imgElement.src = images[randomIndex];
+                imgElement.style.opacity = "1";
+            }, 500);
+        }
+        setInterval(changeImage, 2000);
+
+    </script>
+
+</body>
+</html>

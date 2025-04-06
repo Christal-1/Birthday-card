@@ -1,0 +1,137 @@
+<DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>🤍❤MY BOOBOO BEAR🤍❤</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <!-- Background music -->
+
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        YOUR BROWSER DOES NOT SUPPORT AUDIO TAG.
+
+    </audio>
+
+    <!-- Music Control Buttons -->
+
+    <div class="music-controls">
+        <button onclick="playMusic()">▶ Play</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+    </div>
+
+    <button id="prev-btn">Prev</button>
+    <button id="next-btn">Next</button>
+
+    <div id="song-screen">
+        <h1>❤ Made With Love. All for you KAMMY ❤</h1>
+
+    </div>
+    
+
+
+    <!-- Video Section -->
+
+    <div class="video-container">
+        <h2 class="video-title">Memory 1: Christmas Day❤</h2>
+        <video id="video1" controls >
+            <source src="video/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Video Section -->
+
+    <div class="video-container">
+        <h2 class="video-title">Memory 2: Lost a bet and had <br>to take him out😵</h2>
+        <video id="video2" controls >
+            <source src="video/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Video Section -->
+
+    <div class="video-container">
+        <h2 class="video-title">Memory 3: Surprised me for <br>valentines day🥰</h2>
+        <video id="video3" controls >
+            <source src="video/video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Video Section -->
+
+    <div class="video-container">
+        <h2 class="video-title">Memory 4: Just goofing around👧🏼</h2>
+        <video id="video4" controls >
+            <source src="video/video4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+        <!-- Video Section -->
+
+    <div class="video-container">
+        <h2 class="video-title">Memory 5: Lets not put a <br>title on that one🤐</h2>
+        <video id="video5" controls >
+            <source src="video/video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
+    <script>
+
+        // DISABLE BACKGROUD MUSIC 
+        document.getElementById("background-music").pause();
+
+        const videos = [
+            document.getElementById("video1"),
+            document.getElementById("video2"),
+            document.getElementById("video3"),
+            document.getElementById("video4"),
+            document.getElementById("video5")
+
+
+        ];
+
+        videos.forEach((video, index) =>  {
+            if (index !== 0) video.style.display = "none";
+        });
+
+        function playNextVideo(index) {
+
+            if (index < videos.length - 1) {
+                videos[index].style.display = "none";
+                videos[index + 1].style.display = "block";
+                videos[index + 1].play();
+            }
+        }
+        
+    
+        videos.forEach((video, index) =>  {
+            video.onended = () => playNextVideo(index);
+            });
+
+            videos[0].play();
+        
+
+
+        document.getElementById("next-btn").addEventListener("click", function () {
+            window.location.href = "end.html"
+        });
+
+        document.getElementById("prev-btn").addEventListener("click", function () {
+            window.location.href = "letter.html"
+        });
+
+
+    </script>
+</body>
+</html>
