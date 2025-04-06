@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Access FOR MY MAN🎉</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, rgb(59, 56, 56), rgb(139, 109, 139));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .vip-container {
+            background: linear-gradient(135deg, plum, rgb(7, 6, 12));
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .hidden {
+            display: none;
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            border: 2px solid #ff758c;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #ff758c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #ff527b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vip-container" id="vip-box">
+        <h1>🚨 VIP ACCESS REQUIRED 🚨</h1>
+        <p> ❤ I demand you to crack this Kam ❤ <br> Don't think too hard
+        you use this for consistency🙈</p>
+        
+        <label for="vip-password">Enter Secret Code:</label>
+        <input type="text" id="vip-password" placeholder="Type here...">
+        <button onclick="checkPassword()">Enter 🎂</button>
+
+        <p id="error-message" class="hidden">❌ Oops! Only Kam can pass! Try again. 😆</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            let password = document.getElementById("vip-password").value.trim().toUpperCase();
+            let errorMessage = document.getElementById("error-message");
+            let vipBox = document.getElementById("vip-box");
+
+            if (password === "4444") {
+                window.location.href = "first.html"; // Redirect to the main birthday card
+            } else {
+                errorMessage.classList.remove("hidden"); // Show error message
+                vipBox.classList.add("shake"); // Add shake effect
+
+                setTimeout(() => {
+                    vipBox.classList.remove("shake"); // Remove shake effect after animation ends
+                }, 500);
+            }
+        }
+    </script>
+
+</body>
+</html>
